@@ -1,0 +1,22 @@
+.page {
+  padding: 3rem 0;
+}
+
+.placeholder {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+
+.placeholder h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+}
+
+.placeholder p {
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}

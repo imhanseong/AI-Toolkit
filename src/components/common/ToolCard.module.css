@@ -1,0 +1,70 @@
+.card {
+  background-color: var(--color-bg-secondary, #1e1e24);
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: 1px solid var(--color-border, #333);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 20px -5px rgba(0, 0, 0, 0.2), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-accent-hover, #6366f1);
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #ffffff);
+}
+
+.card p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary, #a1a1aa);
+  line-height: 1.6;
+  flex-grow: 1; /* Pushes the badge and button down */
+}
+
+.categoryBadge {
+  align-self: flex-start;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #818cf8;
+  background-color: rgba(99, 102, 241, 0.15);
+  border-radius: 9999px;
+  text-transform: capitalize;
+  letter-spacing: 0.025em;
+  border: 1px solid rgba(129, 140, 248, 0.2);
+}
+
+.linkButton {
+  margin-top: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--color-accent, #4f46e5);
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  width: 100%;
+}
+
+.linkButton:hover {
+  background-color: var(--color-accent-hover, #4338ca);
+}
+
+.linkButton:active {
+  transform: scale(0.98);
+}
