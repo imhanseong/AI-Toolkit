@@ -1,22 +1,134 @@
-.page {
-  padding: 3rem 0;
+/* src/pages/LandingPage.module.css */
+/* 4주차: 검색/필터 컨트롤, 결과 수, 반응형 스타일 추가 */
+
+.container {
+  padding-bottom: 4rem;
 }
 
-.placeholder {
-  max-width: 600px;
+.section {
+  padding: 3rem 1.5rem 0;
+  max-width: 1200px;
   margin: 0 auto;
-  text-align: center;
-  padding: 4rem 1.5rem;
 }
 
-.placeholder h1 {
-  font-size: 2rem;
+.sectionTitle {
+  font-size: clamp(1.25rem, 3vw, 1.625rem);
   font-weight: 700;
   color: var(--color-text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* 검색 및 필터 컨트롤 영역 */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+/* 검색 입력창 */
+.searchInput {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.65rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.searchInput:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-secondary);
+}
+
+/* 필터 드롭다운 */
+.select {
+  padding: 0.65rem 0.875rem;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background-color: var(--color-surface);
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.select:focus {
+  border-color: var(--color-accent);
+}
+
+/* 필터 초기화 버튼 */
+.resetButton {
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent);
+  background-color: color-mix(in srgb, var(--color-accent) 8%, transparent);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.resetButton:hover {
+  background-color: color-mix(in srgb, var(--color-accent) 16%, transparent);
+}
+
+/* 검색 결과 수 */
+.resultCount {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
   margin-bottom: 1rem;
 }
 
-.placeholder p {
+/* 결과 없음 메시지 */
+.noResult {
   color: var(--color-text-secondary);
-  line-height: 1.7;
+  text-align: center;
+  padding: 3rem;
+  grid-column: 1 / -1;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  font-size: 0.95rem;
+}
+
+/* 반응형: 모바일 */
+@media (max-width: 640px) {
+  .section {
+    padding: 2rem 1rem 0;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchInput,
+  .select,
+  .resetButton {
+    width: 100%;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }

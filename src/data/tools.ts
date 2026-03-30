@@ -2,19 +2,11 @@ import type { AiTool } from '@/types/tool'
 
 // src/data/tools.ts
 // 각 컴포넌트에서 활용할 수 있는 순수 정적 객체 데이터 배열입니다.
+// 4주차: pricing 필드 추가 및 카테고리별 도구 데이터 보강
 
-export interface Tool{
-  id: number,
-  name: string,
-  desc: string,
-  category: 'Writing' | 'Design' | 'Coding' | 'Video',
-  url: string,
-  isFeatured: boolean,
-}
-
-// 로컬 mock 데이터: 기능 테스트 및 UI 렌더링을 위해 카테고리별로 작성된 12개의 AI 툴 목록
+// 로컬 mock 데이터: 기능 테스트 및 UI 렌더링을 위해 카테고리별로 작성된 AI 툴 목록
 export const TOOLS: AiTool[] = [
-  // Writing
+  // ── Writing ─────────────────────────────────────────────
   {
     id: 'chatgpt',
     name: 'ChatGPT',
@@ -22,7 +14,18 @@ export const TOOLS: AiTool[] = [
     category: 'writing',
     tags: ['글쓰기', '요약', '번역'],
     url: 'https://chat.openai.com',
+    pricing: 'freemium',
     isFeatured: true,
+  },
+  {
+    id: 'claude',
+    name: 'Claude',
+    description: 'Anthropic이 만든 안전 중심의 AI 어시스턴트입니다. 장문 분석에 강점이 있습니다.',
+    category: 'writing',
+    tags: ['글쓰기', '분석', '요약'],
+    url: 'https://claude.ai',
+    pricing: 'freemium',
+    isFeatured: false,
   },
   {
     id: 'jasper',
@@ -31,6 +34,7 @@ export const TOOLS: AiTool[] = [
     category: 'writing',
     tags: ['카피라이팅', '마케팅'],
     url: 'https://www.jasper.ai',
+    pricing: 'paid',
     isFeatured: false,
   },
   {
@@ -40,9 +44,11 @@ export const TOOLS: AiTool[] = [
     category: 'writing',
     tags: ['문법교정', '영어'],
     url: 'https://www.grammarly.com',
+    pricing: 'freemium',
     isFeatured: false,
   },
-  // Design
+
+  // ── Design ──────────────────────────────────────────────
   {
     id: 'midjourney',
     name: 'Midjourney',
@@ -50,6 +56,7 @@ export const TOOLS: AiTool[] = [
     category: 'design',
     tags: ['이미지생성', '아트'],
     url: 'https://www.midjourney.com',
+    pricing: 'paid',
     isFeatured: true,
   },
   {
@@ -59,6 +66,7 @@ export const TOOLS: AiTool[] = [
     category: 'design',
     tags: ['디자인', '템플릿'],
     url: 'https://www.canva.com',
+    pricing: 'freemium',
     isFeatured: false,
   },
   {
@@ -68,9 +76,21 @@ export const TOOLS: AiTool[] = [
     category: 'design',
     tags: ['이미지생성', 'Adobe'],
     url: 'https://firefly.adobe.com',
+    pricing: 'freemium',
     isFeatured: false,
   },
-  // Coding
+  {
+    id: 'dall-e',
+    name: 'DALL·E 3',
+    description: 'OpenAI의 최신 이미지 생성 모델로 ChatGPT와 통합되어 있습니다.',
+    category: 'design',
+    tags: ['이미지생성', 'OpenAI'],
+    url: 'https://openai.com/dall-e-3',
+    pricing: 'freemium',
+    isFeatured: false,
+  },
+
+  // ── Coding ──────────────────────────────────────────────
   {
     id: 'github-copilot',
     name: 'GitHub Copilot',
@@ -78,6 +98,7 @@ export const TOOLS: AiTool[] = [
     category: 'coding',
     tags: ['코드자동완성', 'IDE'],
     url: 'https://github.com/features/copilot',
+    pricing: 'paid',
     isFeatured: true,
   },
   {
@@ -87,6 +108,7 @@ export const TOOLS: AiTool[] = [
     category: 'coding',
     tags: ['에디터', '페어프로그래밍'],
     url: 'https://cursor.sh',
+    pricing: 'freemium',
     isFeatured: false,
   },
   {
@@ -96,9 +118,21 @@ export const TOOLS: AiTool[] = [
     category: 'coding',
     tags: ['코드자동완성', '프라이버시'],
     url: 'https://www.tabnine.com',
+    pricing: 'freemium',
     isFeatured: false,
   },
-  // Video
+  {
+    id: 'codeium',
+    name: 'Codeium',
+    description: '완전 무료로 사용 가능한 AI 코드 자동완성 도구입니다.',
+    category: 'coding',
+    tags: ['코드자동완성', '무료'],
+    url: 'https://codeium.com',
+    pricing: 'free',
+    isFeatured: false,
+  },
+
+  // ── Video ───────────────────────────────────────────────
   {
     id: 'runway',
     name: 'Runway',
@@ -106,6 +140,7 @@ export const TOOLS: AiTool[] = [
     category: 'video',
     tags: ['영상생성', '편집'],
     url: 'https://runwayml.com',
+    pricing: 'freemium',
     isFeatured: true,
   },
   {
@@ -115,6 +150,7 @@ export const TOOLS: AiTool[] = [
     category: 'video',
     tags: ['아바타', '교육영상'],
     url: 'https://www.synthesia.io',
+    pricing: 'paid',
     isFeatured: false,
   },
   {
@@ -124,6 +160,17 @@ export const TOOLS: AiTool[] = [
     category: 'video',
     tags: ['영상편집', '팟캐스트'],
     url: 'https://www.descript.com',
+    pricing: 'freemium',
+    isFeatured: false,
+  },
+  {
+    id: 'pika',
+    name: 'Pika',
+    description: '간단한 텍스트 프롬프트로 창의적인 단편 영상을 생성합니다.',
+    category: 'video',
+    tags: ['영상생성', '텍스트투비디오'],
+    url: 'https://pika.art',
+    pricing: 'freemium',
     isFeatured: false,
   },
 ]
