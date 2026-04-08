@@ -1,5 +1,5 @@
-// src/components/common/ToolCard.module.css
-// 4주차: tags, pricing 배지, meta 영역 스타일 추가
+/* src/components/common/ToolCard.module.css */
+/* 4주차: tags, pricing 배지, meta 영역 스타일 추가 */
 
 .card {
   background-color: var(--color-card-bg);
