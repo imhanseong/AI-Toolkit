@@ -40,7 +40,9 @@ function CategoryPage({ category, title, description }: CategoryPageProps) {
     document.title = `${title} AI 도구 - AI Toolkit`
   }, [title])
 
-  const filteredTools = TOOLS.filter(tool => tool.category === category)
+  const filteredTools = TOOLS.filter(tool => 
+    tool.category === category || tool.additionalCategories?.includes(category)
+  )
   const faqs = FAQ_DATA[category] || []
 
   return (
